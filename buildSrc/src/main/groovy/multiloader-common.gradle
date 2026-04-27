@@ -40,6 +40,10 @@ repositories {
         name = 'BlameJared'
         url = 'https://maven.blamejared.com'
     }
+    maven {
+        url = "Shedaniel's Maven"
+        url = "https://maven.shedaniel.me/"
+    }
 }
 
 // Declare capabilities on the outgoing configurations.

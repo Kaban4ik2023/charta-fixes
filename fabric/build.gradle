@@ -3,17 +3,6 @@ plugins {
     id 'fabric-loom'
 }
 
-repositories {
-    maven {
-        name = "Jared's maven"
-        url = "https://maven.blamejared.com/"
-    }
-    maven {
-        url = "Shedaniel's Maven"
-        url = "https://maven.shedaniel.me/"
-    }
-}
-
 loom {
     def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
