@@ -1,7 +1,6 @@
 package dev.lucaargolo.charta.common;
 
 import com.mojang.datafixers.util.Pair;
-import dev.lucaargolo.charta.common.addon.ChartaAddonRegistry;
 import dev.lucaargolo.charta.common.block.ModBlocks;
 import dev.lucaargolo.charta.common.block.entity.CardTableBlockEntity;
 import dev.lucaargolo.charta.common.block.entity.ModBlockEntityTypes;
@@ -100,8 +99,6 @@ public abstract class ChartaMod {
 
     public final void init() {
         this.packetManager.init();
-        // Apply addon registrations first so they're included in all registry inits
-        ChartaAddonRegistry.applyDeferredRegistrations();
         ModBlocks.REGISTRY.init();
         ModItems.REGISTRY.init();
         ModEntityTypes.REGISTRY.init();
