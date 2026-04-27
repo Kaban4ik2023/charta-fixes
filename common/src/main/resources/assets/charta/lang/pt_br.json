@@ -15,6 +15,7 @@
   "charta.solitaire": "Paciência",
 
   "entity.minecraft.villager.charta.dealer": "Crupiê",
+  "entity.minecraft.villager.dealer": "Dealer",
 
   "block.charta.dealer_table": "Mesa do Crupiê",
   "block.charta.oak_card_table": "Mesa de Cartas de Carvalho",
@@ -449,6 +450,6 @@
 
   "charta_md:charta.how_to_play_fun": "charta:pt_br/how_to_play_fun",
   "charta_md:charta.how_to_play_crazy_eights": "charta:pt_br/how_to_play_crazy_eights",
-  "charta_md:charta.how_to_play_solitaire": "charta:pt_br/how_to_play_solitaire"
+  "charta_md:charta.how_to_play_solitaire": "charta:pt_br/how_to_play_solitaire",
 
 }

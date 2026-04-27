@@ -1,6 +1,5 @@
 package dev.lucaargolo.charta.common.game.api.game;
 
-import com.mojang.datafixers.util.Either;
 import dev.lucaargolo.charta.common.ChartaMod;
 import dev.lucaargolo.charta.common.game.api.CardPlayer;
 import dev.lucaargolo.charta.common.game.api.GamePlay;
@@ -11,7 +10,6 @@ import dev.lucaargolo.charta.common.game.api.card.Suit;
 import dev.lucaargolo.charta.common.game.impl.AutoPlayer;
 import dev.lucaargolo.charta.common.menu.AbstractCardMenu;
 import dev.lucaargolo.charta.common.network.CardPlayPayload;
-import dev.lucaargolo.charta.common.registry.ModMenuTypeRegistry;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -63,16 +61,14 @@ public abstract class Game<G extends Game<G, M>, M extends AbstractCardMenu<G, M
         this.gameSuits = this.gameDeck.stream().map(Card::suit).collect(Collectors.toSet());
     }
 
-    public abstract ModMenuTypeRegistry.AdvancedMenuTypeEntry<M, AbstractCardMenu.Definition> getMenuType();
-
     public abstract M createMenu(int containerId, Inventory playerInventory, AbstractCardMenu.Definition definition);
 
     public abstract Predicate<Deck> getDeckPredicate();
 
     public abstract Predicate<Card> getCardPredicate();
 
-    public Either<Game<?, ?>, Component> playerPredicate(List<CardPlayer> players) {
-        return Either.left(this);
+    public Optional<Component> playerPredicate(List<CardPlayer> players) {
+        return Optional.empty();
     }
 
     public abstract boolean canPlay(CardPlayer player, GamePlay play);
@@ -227,7 +223,7 @@ public abstract class Game<G extends Game<G, M>, M extends AbstractCardMenu<G, M
     }
 
     public void openScreen(ServerPlayer player, BlockPos pos, Deck deck) {
-        ChartaMod.getInstance().openMenu(this.getMenuType(), this::createMenu, player, new AbstractCardMenu.Definition(pos, deck, players.stream().mapToInt(CardPlayer::getId).toArray(), this.getRawOptions()), Component.empty());
+        ChartaMod.getInstance().openMenu(this::createMenu, player, new AbstractCardMenu.Definition(pos, deck, players.stream().mapToInt(CardPlayer::getId).toArray(), this.getRawOptions()), AbstractCardMenu.Definition.STREAM_CODEC, Component.empty());
     }
 
     public void tick() {

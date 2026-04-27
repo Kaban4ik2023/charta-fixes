@@ -1,12 +1,12 @@
 package dev.lucaargolo.charta.client.render.screen;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import com.mojang.datafixers.util.Either;
 import dev.lucaargolo.charta.client.ChartaModClient;
 import dev.lucaargolo.charta.common.ChartaMod;
 import dev.lucaargolo.charta.common.game.Games;
 import dev.lucaargolo.charta.common.game.api.CardPlayer;
 import dev.lucaargolo.charta.common.game.api.card.Deck;
+import dev.lucaargolo.charta.common.game.api.game.Game;
 import dev.lucaargolo.charta.common.game.api.game.GameType;
 import dev.lucaargolo.charta.common.menu.AbstractCardMenu;
 import dev.lucaargolo.charta.common.network.CardTableSelectGamePayload;
@@ -30,6 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class TableScreen extends Screen {
@@ -53,7 +54,7 @@ public class TableScreen extends Screen {
         super.init();
         this.widget = this.addRenderableWidget(new GameWidget<>(minecraft, width, height-60, 30));
         Games.MOD_REGISTRY.getRegistry().entrySet().forEach(entry -> {
-            this.widget.addEntry(new Game(entry.getKey().location(), entry.getValue()));
+            this.widget.addEntry(new GameButton(entry.getKey().location(), entry.getValue()));
         });
     }
 
@@ -84,7 +85,7 @@ public class TableScreen extends Screen {
         return false;
     }
 
-    public class Game<G extends dev.lucaargolo.charta.common.game.api.game.Game<G, M>, M extends AbstractCardMenu<G, M>> extends Button implements TickableWidget {
+    public class GameButton<G extends Game<G, M>, M extends AbstractCardMenu<G, M>> extends Button implements TickableWidget {
 
         private final ResourceLocation gameId;
         private final GameType<G, M> gameFactory;
@@ -100,7 +101,7 @@ public class TableScreen extends Screen {
         private float lastFov = 30f;
         private float fov = 37f;
 
-        public Game(ResourceLocation gameId, GameType<G, M> gameFactory) {
+        public GameButton(ResourceLocation gameId, GameType<G, M> gameFactory) {
             super(0, 0, 70, 70, Component.translatable(gameId.toLanguageKey()), (button) -> {
                 ChartaMod.getPacketManager().sendToServer(new CardTableSelectGamePayload(pos, gameId, ChartaModClient.LOCAL_OPTIONS.getOrDefault(gameId, new byte[0])));
                 onClose();
@@ -117,12 +118,12 @@ public class TableScreen extends Screen {
                     cardPlayers.add(mixed.charta_getCardPlayer());
                 }
             }
-            Either<dev.lucaargolo.charta.common.game.api.game.Game<?, ?>, Component> either = this.game.playerPredicate(cardPlayers);
+            Optional<Component> optional = this.game.playerPredicate(cardPlayers);
 
-            boolean invalidDeck = !dev.lucaargolo.charta.common.game.api.game.Game.isValidDeck(this.game, deck);
+            boolean invalidDeck = !Game.isValidDeck(this.game, deck);
             boolean notEnoughPlayers = players.length < this.game.getMinPlayers();
             boolean tooManyPlayers = players.length > this.game.getMaxPlayers();
-            boolean invalidPlayers = either.right().isPresent();
+            boolean invalidPlayers = optional.isPresent();
 
             this.active = !(invalidDeck || notEnoughPlayers || tooManyPlayers || invalidPlayers);
             if(invalidDeck) {
@@ -132,7 +133,7 @@ public class TableScreen extends Screen {
             }else if(tooManyPlayers) {
                 this.tooltip = Component.translatable("message.charta.too_many_players", this.game.getMaxPlayers());
             }else if(invalidPlayers) {
-                this.tooltip = either.right().orElseThrow();
+                this.tooltip = optional.get();
             }else{
                 this.tooltip = null;
             }
@@ -184,19 +185,19 @@ public class TableScreen extends Screen {
 
     public class GameRow<G extends dev.lucaargolo.charta.common.game.api.game.Game<G, M>, M extends AbstractCardMenu<G, M>> extends ContainerObjectSelectionList.Entry<GameRow<G, M>> {
 
-        protected List<Game<G, M>> games = new ArrayList<>();
+        protected List<GameButton<G, M>> gameButtons = new ArrayList<>();
         protected List<Button> plays = new ArrayList<>();
         protected List<Button> configs = new ArrayList<>();
 
         @Override
         public void render(@NotNull GuiGraphics guiGraphics, int index, int top, int left, int width, int height, int mouseX, int mouseY, boolean hovering, float partialTick) {
             int i = 0;
-            for(Game<G, M> game : games) {
-                game.setX(left + i*75);
-                game.setY(top);
-                game.render(guiGraphics, mouseX, mouseY, partialTick);
-                if(game.isHovered() && game.tooltip != null) {
-                    setTooltipForNextRenderPass(game.tooltip);
+            for(GameButton<G, M> gameButton : gameButtons) {
+                gameButton.setX(left + i*75);
+                gameButton.setY(top);
+                gameButton.render(guiGraphics, mouseX, mouseY, partialTick);
+                if(gameButton.isHovered() && gameButton.tooltip != null) {
+                    setTooltipForNextRenderPass(gameButton.tooltip);
                 }
                 i++;
             }
@@ -220,12 +221,12 @@ public class TableScreen extends Screen {
 
         @Override
         public @NotNull List<? extends GuiEventListener> children() {
-            return isShiftDown() ? Stream.concat(plays.stream(), configs.stream()).toList() : games;
+            return isShiftDown() ? Stream.concat(plays.stream(), configs.stream()).toList() : gameButtons;
         }
 
         @Override
         public @NotNull List<? extends NarratableEntry> narratables() {
-            return isShiftDown() ? Stream.concat(plays.stream(), configs.stream()).toList() : games;
+            return isShiftDown() ? Stream.concat(plays.stream(), configs.stream()).toList() : gameButtons;
         }
 
     }
@@ -240,11 +241,11 @@ public class TableScreen extends Screen {
             this.amount = margin/75;
         }
 
-        public void addEntry(@NotNull Game<G, M> entry) {
-            if(this.children().isEmpty() || this.children().getLast().games.size() >= amount) {
+        public void addEntry(@NotNull TableScreen.GameButton<G, M> entry) {
+            if(this.children().isEmpty() || this.children().getLast().gameButtons.size() >= amount) {
                 this.addEntry(new GameRow<>());
             }
-            this.children().getLast().games.add(entry);
+            this.children().getLast().gameButtons.add(entry);
 
             Component play = Component.literal("\ue037").withStyle(ChartaMod.SYMBOLS);
             Button playWidget = Button.builder(play, button -> entry.onPress()).bounds(0, 0, 20, 20).build();
@@ -269,8 +270,8 @@ public class TableScreen extends Screen {
         @Override
         public void tick(int mouseX, int mouseY) {
             for (GameRow<G, M> row : this.children()) {
-                for(Game<G, M> game : row.games) {
-                    game.tick(mouseX, mouseY);
+                for(GameButton<G, M> gameButton : row.gameButtons) {
+                    gameButton.tick(mouseX, mouseY);
                 }
             }
         }

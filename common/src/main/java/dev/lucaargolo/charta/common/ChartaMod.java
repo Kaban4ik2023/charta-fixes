@@ -29,8 +29,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -139,10 +141,10 @@ public abstract class ChartaMod {
 
     protected abstract void addVillagerTrade(MinecraftEntry<VillagerProfession> profession, int level, Supplier<VillagerTrades.ItemListing> listing);
 
-    public abstract <M extends AbstractContainerMenu, D> void openMenu(ModMenuTypeRegistry.AdvancedMenuTypeEntry<M, D> entry, BiFunction<Integer, Inventory, M> constructor, Player player, D data, Component title);
+    public abstract <M extends AbstractContainerMenu, D> void openMenu(BiFunction<Integer, Inventory, M> constructor, Player player, D data, StreamCodec<RegistryFriendlyByteBuf, D> dataCodec, Component title);
 
-    public <M extends AbstractContainerMenu, D> void openMenu(ModMenuTypeRegistry.AdvancedMenuTypeEntry<M, D> entry, TriFunction<Integer, Inventory, D, M> constructor, Player player, D data, Component title) {
-        this.openMenu(entry, (syncId, inventory) -> constructor.apply(syncId, inventory, data), player, data, title);
+    public <M extends AbstractContainerMenu, D> void openMenu(TriFunction<Integer, Inventory, D, M> constructor, Player player, D data, StreamCodec<RegistryFriendlyByteBuf, D> dataCodec, Component title) {
+        this.openMenu((syncId, inventory) -> constructor.apply(syncId, inventory, data), player, data, dataCodec, title);
     }
 
     public abstract void registerEventOnServerAboutToStart(Consumer<MinecraftServer> consumer);

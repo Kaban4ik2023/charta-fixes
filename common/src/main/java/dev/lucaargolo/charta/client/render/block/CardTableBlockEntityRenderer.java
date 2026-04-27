@@ -127,26 +127,13 @@ public class CardTableBlockEntityRenderer implements BlockEntityRenderer<CardTab
             poseStack.translate(0.5 + blockEntity.centerOffset.x, 0.275 + blockEntity.centerOffset.y, 0.0);
             context.getItemRenderer().renderStatic(deckStack, ItemDisplayContext.GROUND, packedLight, packedOverlay, poseStack, bufferSource, blockEntity.getLevel(), 1);
         }
-        if (EXTRA_RENDERER != null) {
-            EXTRA_RENDERER.render(blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
-        }
+        ChartaModClient.retrieveExtraRenderers(blockEntity.getGameType()).forEach(extraRenderer -> {
+            extraRenderer.render(blockEntity, partialTick, poseStack, bufferSource, packedLight, packedOverlay);
+        });
         poseStack.popPose();
     }
 
-    /**
-     * Optional extra render hook for addons.
-     * Called after cards are rendered. Receives the same render arguments.
-     * Register from your client initializer:
-     * {@code CardTableBlockEntityRenderer.EXTRA_RENDERER = (be, pt, ps, buf, light, overlay) -> { ... };}
-     */
-    @FunctionalInterface
-    public interface ExtraRenderer {
-        void render(CardTableBlockEntity blockEntity, float partialTick,
-                    PoseStack poseStack, MultiBufferSource bufferSource,
-                    int packedLight, int packedOverlay);
-    }
 
-    public static ExtraRenderer EXTRA_RENDERER = null;
 
     public static void drawCard(Deck deck, Card card, int packedLight, int packedOverlay, PoseStack poseStack, MultiBufferSource bufferSource, float x, float y, Vector3f normal) {
         PoseStack.Pose entry = poseStack.last();
@@ -170,5 +157,8 @@ public class CardTableBlockEntityRenderer implements BlockEntityRenderer<CardTab
         consumer.addVertex(entry.pose(), x/160f, (y+CardImage.HEIGHT)/160f, 0).setColor(1f, 1f, 1f, 1f).setUv(0f, 0f).setOverlay(packedOverlay).setLight(packedLight).setNormal(entry, normal.x, normal.y, normal.z);
         consumer.addVertex(entry.pose(), x/160f, y/160f, 0).setColor(1f, 1f, 1f, 1f).setUv(0f, 1f).setOverlay(packedOverlay).setLight(packedLight).setNormal(entry, normal.x, normal.y, normal.z);
     }
+
+
+
 
 }

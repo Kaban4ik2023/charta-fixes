@@ -1,5 +1,7 @@
 package dev.lucaargolo.charta.client;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.datafixers.util.Pair;
 import dev.lucaargolo.charta.client.compat.IrisCompat;
 import dev.lucaargolo.charta.client.render.ModRenderTypeManager;
 import dev.lucaargolo.charta.client.render.ModShaderManager;
@@ -8,8 +10,10 @@ import dev.lucaargolo.charta.client.render.block.CardTableBlockEntityRenderer;
 import dev.lucaargolo.charta.client.render.entity.IronLeashKnotRenderer;
 import dev.lucaargolo.charta.client.render.item.DeckItemRenderer;
 import dev.lucaargolo.charta.common.ChartaMod;
+import dev.lucaargolo.charta.common.block.entity.CardTableBlockEntity;
 import dev.lucaargolo.charta.common.block.entity.ModBlockEntityTypes;
 import dev.lucaargolo.charta.common.entity.ModEntityTypes;
+import dev.lucaargolo.charta.common.game.api.game.GameType;
 import dev.lucaargolo.charta.common.game.impl.crazyeights.CrazyEightsScreen;
 import dev.lucaargolo.charta.common.game.impl.fun.FunScreen;
 import dev.lucaargolo.charta.common.game.impl.solitaire.SolitaireScreen;
@@ -23,6 +27,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.MenuAccess;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.NoopRenderer;
@@ -41,13 +46,18 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.apache.commons.lang3.function.TriFunction;
 import org.apache.commons.lang3.tuple.Triple;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public abstract class ChartaModClient {
 
     private static ChartaModClient instance;
+
+    private static final List<Pair<Predicate<GameType<?, ?>>, ExtraRenderer>> extraRenderers = new ArrayList<>();
 
     public static final LinkedList<Triple<Component, Integer, Component>> LOCAL_HISTORY = new LinkedList<>();
     public static final HashMap<ResourceLocation, byte[]> LOCAL_OPTIONS = new HashMap<>();
@@ -174,5 +184,28 @@ public abstract class ChartaModClient {
         ChartaMod.CARD_IMAGES.getImages().clear();
         ChartaMod.DECK_IMAGES.getImages().clear();
     }
+
+    public static List<ExtraRenderer> retrieveExtraRenderers(GameType<?, ?> game) {
+        return extraRenderers.stream()
+                .filter(p -> p.getFirst().test(game))
+                .map(Pair::getSecond)
+                .toList();
+    }
+
+    public static void registerExtraRenderer(GameType<?, ?> gameType, ExtraRenderer renderer) {
+        extraRenderers.add(Pair.of(gameType::equals, renderer));
+    }
+
+    public static void registerExtraRenderer(Predicate<GameType<?, ?>> predicate, ExtraRenderer renderer) {
+        extraRenderers.add(Pair.of(predicate, renderer));
+    }
+
+    @FunctionalInterface
+    public interface ExtraRenderer {
+        void render(CardTableBlockEntity blockEntity, float partialTick,
+                    PoseStack poseStack, MultiBufferSource bufferSource,
+                    int packedLight, int packedOverlay);
+    }
+
 
 }

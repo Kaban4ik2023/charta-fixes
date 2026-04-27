@@ -2,7 +2,6 @@ package dev.lucaargolo.charta.common;
 
 import dev.lucaargolo.charta.common.block.ModBlocks;
 import dev.lucaargolo.charta.common.entity.ModPoiTypes;
-import dev.lucaargolo.charta.common.registry.ModMenuTypeRegistry;
 import dev.lucaargolo.charta.common.registry.minecraft.MinecraftEntry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.FakePlayer;
@@ -14,7 +13,9 @@ import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
@@ -90,7 +91,7 @@ public class FabricChartaMod extends ChartaMod implements ModInitializer {
     }
 
     @Override
-    public <M extends AbstractContainerMenu, D> void openMenu(ModMenuTypeRegistry.AdvancedMenuTypeEntry<M, D> entry, BiFunction<Integer, Inventory, M> constructor, Player player, D data, Component title) {
+    public <M extends AbstractContainerMenu, D> void openMenu(BiFunction<Integer, Inventory, M> constructor, Player player, D data, StreamCodec<RegistryFriendlyByteBuf, D> dataCodec, Component title) {
         player.openMenu(new ExtendedScreenHandlerFactory<D>() {
             @Override
             public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {

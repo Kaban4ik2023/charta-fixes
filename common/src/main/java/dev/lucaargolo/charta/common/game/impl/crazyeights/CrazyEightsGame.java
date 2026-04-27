@@ -10,8 +10,6 @@ import dev.lucaargolo.charta.common.game.api.card.Suit;
 import dev.lucaargolo.charta.common.game.api.game.Game;
 import dev.lucaargolo.charta.common.game.api.game.GameOption;
 import dev.lucaargolo.charta.common.menu.AbstractCardMenu;
-import dev.lucaargolo.charta.common.menu.ModMenuTypes;
-import dev.lucaargolo.charta.common.registry.ModMenuTypeRegistry;
 import dev.lucaargolo.charta.common.sound.ModSounds;
 import dev.lucaargolo.charta.common.utils.CardImage;
 import net.minecraft.ChatFormatting;
@@ -75,11 +73,6 @@ public class CrazyEightsGame extends Game<CrazyEightsGame, CrazyEightsMenu> {
     @Override
     public List<GameOption<?>> getOptions() {
         return List.of(AVAILABLE_DRAWS);
-    }
-
-    @Override
-    public ModMenuTypeRegistry.AdvancedMenuTypeEntry<CrazyEightsMenu, AbstractCardMenu.Definition> getMenuType() {
-        return ModMenuTypes.CRAZY_EIGHTS;
     }
 
     @Override

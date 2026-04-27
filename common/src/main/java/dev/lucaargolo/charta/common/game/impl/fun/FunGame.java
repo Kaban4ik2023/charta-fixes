@@ -12,9 +12,7 @@ import dev.lucaargolo.charta.common.game.api.game.Game;
 import dev.lucaargolo.charta.common.game.api.game.GameOption;
 import dev.lucaargolo.charta.common.item.DeckItem;
 import dev.lucaargolo.charta.common.menu.AbstractCardMenu;
-import dev.lucaargolo.charta.common.menu.ModMenuTypes;
 import dev.lucaargolo.charta.common.network.LastFunPayload;
-import dev.lucaargolo.charta.common.registry.ModMenuTypeRegistry;
 import dev.lucaargolo.charta.common.sound.ModSounds;
 import dev.lucaargolo.charta.common.utils.CardImage;
 import net.minecraft.ChatFormatting;
@@ -113,11 +111,6 @@ public class FunGame extends Game<FunGame, FunMenu> {
             STACK_SAME_PLUS2_ON_PLUS4,
             STACK_ANY_PLUS2_ON_PLUS4
         );
-    }
-
-    @Override
-    public ModMenuTypeRegistry.AdvancedMenuTypeEntry<FunMenu, AbstractCardMenu.Definition> getMenuType() {
-        return ModMenuTypes.FUN;
     }
 
     @Override

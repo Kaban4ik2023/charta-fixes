@@ -1,6 +1,5 @@
 package dev.lucaargolo.charta.common.block.entity;
 
-import com.mojang.datafixers.util.Either;
 import com.mojang.datafixers.util.Pair;
 import dev.lucaargolo.charta.common.ChartaMod;
 import dev.lucaargolo.charta.common.block.CardTableBlock;
@@ -78,6 +77,8 @@ public class CardTableBlockEntity extends BlockEntity {
 
     private ItemStack deckStack = ItemStack.EMPTY;
     public Vector2f centerOffset = new Vector2f();
+    @Nullable
+    public GameType<?, ?> gameType = null;
 
     @Nullable
     private Game<?, ?> game = null;
@@ -110,8 +111,8 @@ public class CardTableBlockEntity extends BlockEntity {
                     if(Game.isValidDeck(game, this.getDeck())) {
                         if (players.size() >= game.getMinPlayers()) {
                             if (players.size() <= game.getMaxPlayers()) {
-                                Either<Game<?, ?>, Component> either = game.playerPredicate(players);
-                                if(either.left().isPresent()) {
+                                Optional<Component> optional = game.playerPredicate(players);
+                                if(optional.isEmpty()) {
                                     ChartaMod.getPacketManager().sendToPlayersTrackingChunk((ServerLevel) level, new ChunkPos(worldPosition), new GameSlotResetPayload(worldPosition));
                                     for(CardPlayer player : players) {
                                         LivingEntity entity = player.getEntity();
@@ -120,7 +121,8 @@ public class CardTableBlockEntity extends BlockEntity {
                                         }
                                     }
                                     this.resetSlots();
-                                    this.game = game;
+                                    setGame(type, game);
+                                    assert this.game != null;
                                     this.game.startGame();
                                     this.game.runGame();
                                     for(GameSlot slot : this.game.getSlots()) {
@@ -168,35 +170,43 @@ public class CardTableBlockEntity extends BlockEntity {
                                         player.openScreen(this.game, this.worldPosition, deck);
                                     }
                                     return Component.translatable("message.charta.game_started").withStyle(ChatFormatting.GREEN);
-                                }else{
-                                    this.game = null;
-                                    return either.right().orElse(Component.translatable("message.charta.invalid_players")).copy().withStyle(ChatFormatting.RED);
+                                }else {
+                                    setGame(null, null);
+                                    return optional.get().copy().withStyle(ChatFormatting.RED);
                                 }
                             } else {
-                                this.game = null;
+                                setGame(null, null);
                                 return Component.translatable("message.charta.too_many_players", game.getMaxPlayers()).withStyle(ChatFormatting.RED);
                             }
                         } else {
-                            this.game = null;
+                            setGame(null, null);
                             return Component.translatable("message.charta.not_enough_players", game.getMinPlayers()).withStyle(ChatFormatting.RED);
                         }
                     }else{
-                        this.game = null;
+                        setGame(null, null);
                         return Component.translatable("message.charta.cant_play_deck").withStyle(ChatFormatting.RED);
                     }
                 }else{
-                    this.game = null;
+                    setGame(null, null);
                     return Component.translatable("message.charta.table_unknown_game").withStyle(ChatFormatting.RED);
                 }
             }else{
-                this.game = null;
+                setGame(null, null);
                 return Component.translatable("message.charta.table_no_game").withStyle(ChatFormatting.RED);
             }
         }else{
-            this.game = null;
+            setGame(null, null);
             return Component.translatable("message.charta.table_no_deck").withStyle(ChatFormatting.RED);
         }
 
+    }
+
+    private void setGame(GameType<?, ?> type, Game<?, ?> game) {
+        this.gameType = type;
+        this.setChanged();
+        assert this.getLevel() != null;
+        this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        this.game = game;
     }
 
     @Override
@@ -209,6 +219,14 @@ public class CardTableBlockEntity extends BlockEntity {
         }
         tag.putFloat("centerOffsetX", centerOffset.x);
         tag.putFloat("centerOffsetY", centerOffset.y);
+        if(gameType != null) {
+            ResourceLocation id = Games.getRegistry().getKey(gameType);
+            if(id != null) {
+                tag.putString("gameType", id.toString());
+            }else{
+                ChartaMod.LOGGER.error("CardTable tried saving invalid game type {}", gameType);
+            }
+        }
     }
 
     @Override
@@ -221,9 +239,27 @@ public class CardTableBlockEntity extends BlockEntity {
             }else {
                 setDeckStack(ItemStack.EMPTY);
             }
+        }else{
+            setDeckStack(ItemStack.EMPTY);
         }
         centerOffset.x = tag.getFloat("centerOffsetX");
         centerOffset.y = tag.getFloat("centerOffsetY");
+        if(tag.contains("gameType")) {
+            String key = tag.getString("gameType");
+            ResourceLocation id = ResourceLocation.tryParse(key);
+            if(id != null) {
+                GameType<?, ?> type = Games.getRegistry().get(id);
+                if(type != null) {
+                    gameType = type;
+                }else{
+                    ChartaMod.LOGGER.error("CardTable tried loading invalid game type id {}", id);
+                }
+            }else{
+                ChartaMod.LOGGER.error("CardTable tried loading invalid game type id {}", key);
+            }
+        }else{
+            gameType = null;
+        }
     }
 
     @Override
@@ -245,6 +281,10 @@ public class CardTableBlockEntity extends BlockEntity {
     public void setDeckStack(ItemStack deckStack) {
         this.deckStack = deckStack;
         setChanged();
+    }
+
+    public @Nullable GameType<?, ?> getGameType() {
+        return gameType;
     }
 
     public GameSlot getSlot(int index) {
