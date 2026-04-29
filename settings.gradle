@@ -26,6 +26,17 @@ pluginManagement {
                 includeGroupAndSubgroups("org.spongepowered")
             }
         }
+        exclusiveContent {
+            forRepository {
+                maven {
+                    name = 'Max Henkel'
+                    url = uri('https://maven.maxhenkel.de/releases')
+                }
+            }
+            filter {
+                includeGroupAndSubgroups('de.maxhenkel')
+            }
+        }
     }
 }
 

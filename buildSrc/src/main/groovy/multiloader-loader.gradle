@@ -1,7 +1,7 @@
 plugins {
     id 'multiloader-common'
     id 'com.modrinth.minotaur'
-    id 'net.darkhax.curseforgegradle'
+    id 'de.maxhenkel.cursegradle'
 }
 
 configurations {
@@ -45,14 +45,13 @@ tasks.named('sourcesJar', Jar) {
     from(configurations.commonResources)
 }
 
-afterEvaluate {
+def configureDistributionTasks = { artifactTask ->
     modrinth {
         token = System.getenv("MODRINTH_TOKEN")
         projectId = modrinth_id
+        uploadFile = artifactTask
         versionName = mod_id[0].toUpperCase() + mod_id.substring(1) + " " + version
-        versionNumber = version
         versionType = "release"
-        uploadFile = project.name == "fabric" ? tasks.named("remapJar") : tasks.named("jar")
         gameVersions = [minecraft_version]
         loaders = [project.name]
         if(project.name == "fabric") {
@@ -61,4 +60,31 @@ afterEvaluate {
             }
         }
     }
+
+    curseforge {
+        apiKey = System.getenv("CURSEFORGE_API_KEY")
+        //noinspection GroovyAssignabilityCheck
+        project {
+            id = curseforge_id
+            mainArtifact(artifactTask) {
+                displayName = mod_id[0].toUpperCase() + mod_id.substring(1) + " " + version
+                releaseType = "release"
+                addGameVersion(minecraft_version)
+                addGameVersion(project.name == 'fabric' ? "Fabric" : project.name == "neoforge" ? "NeoForge" : "")
+                if(project.name == "fabric") {
+                    relations {
+                        requiredDependency "fabric-api"
+                    }
+                }
+            }
+        }
+    }
+}
+
+if (project.name == "fabric") {
+    pluginManager.withPlugin("fabric-loom") {
+        configureDistributionTasks(tasks.named("remapJar").get())
+    }
+} else {
+    configureDistributionTasks(tasks.named("jar").get())
 }
