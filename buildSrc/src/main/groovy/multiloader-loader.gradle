@@ -1,5 +1,7 @@
 plugins {
     id 'multiloader-common'
+    id 'com.modrinth.minotaur'
+    id 'net.darkhax.curseforgegradle'
 }
 
 configurations {
@@ -41,4 +43,22 @@ tasks.named('sourcesJar', Jar) {
     from(configurations.commonJava)
     dependsOn(configurations.commonResources)
     from(configurations.commonResources)
+}
+
+afterEvaluate {
+    modrinth {
+        token = System.getenv("MODRINTH_TOKEN")
+        projectId = modrinth_id
+        versionName = mod_id[0].toUpperCase() + mod_id.substring(1) + " " + version
+        versionNumber = version
+        versionType = "release"
+        uploadFile = project.name == "fabric" ? tasks.named("remapJar") : tasks.named("jar")
+        gameVersions = [minecraft_version]
+        loaders = [project.name]
+        if(project.name == "fabric") {
+            dependencies {
+                required.project "fabric-api"
+            }
+        }
+    }
 }
