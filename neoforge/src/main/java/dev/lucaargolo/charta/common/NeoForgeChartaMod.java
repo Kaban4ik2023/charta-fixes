@@ -48,7 +48,7 @@ public class NeoForgeChartaMod extends dev.lucaargolo.charta.common.ChartaMod {
     private final List<Consumer<MinecraftServer>> onServerAboutToStart = new ArrayList<>();
     private final List<BiConsumer<LevelChunk, ServerPlayer>> onChunkSent = new ArrayList<>();
     private final List<Consumer<ServerPlayer>> onPlayerJoined = new ArrayList<>();
-    private final List<Consumer<ServerPlayer>> onDatapackSync = new ArrayList<>();
+    private final List<BiConsumer<MinecraftServer, ServerPlayer>> onDatapackSync = new ArrayList<>();
 
     private final IEventBus modBus;
 
@@ -67,7 +67,7 @@ public class NeoForgeChartaMod extends dev.lucaargolo.charta.common.ChartaMod {
         NeoForge.EVENT_BUS.addListener(PlayerEvent.PlayerLoggedInEvent.class, event -> this.onPlayerJoined.forEach(c -> {
             if(event.getEntity() instanceof ServerPlayer player) c.accept(player);
         }));
-        NeoForge.EVENT_BUS.addListener(OnDatapackSyncEvent.class, event -> this.onDatapackSync.forEach(c -> c.accept(event.getPlayer())));
+        NeoForge.EVENT_BUS.addListener(OnDatapackSyncEvent.class, event -> this.onDatapackSync.forEach(c -> c.accept(event.getPlayerList().getServer(), event.getPlayer())));
     }
 
     @Override
@@ -126,7 +126,7 @@ public class NeoForgeChartaMod extends dev.lucaargolo.charta.common.ChartaMod {
     }
 
     @Override
-    public void registerEventOnDatapackSync(Consumer<ServerPlayer> consumer) {
+    public void registerEventOnDatapackSync(BiConsumer<MinecraftServer, ServerPlayer> consumer) {
         this.onDatapackSync.add(consumer);
     }
 

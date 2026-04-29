@@ -126,8 +126,8 @@ public class FabricChartaMod extends ChartaMod implements ModInitializer {
     }
 
     @Override
-    public void registerEventOnDatapackSync(Consumer<ServerPlayer> consumer) {
-        ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register((player, joined) -> consumer.accept(player));
+    public void registerEventOnDatapackSync(BiConsumer<MinecraftServer, ServerPlayer> consumer) {
+        ServerLifecycleEvents.SYNC_DATA_PACK_CONTENTS.register((player, joined) -> consumer.accept(player.server, player));
     }
 
     public List<BiConsumer<LevelChunk, ServerPlayer>> getOnChunkSent() {

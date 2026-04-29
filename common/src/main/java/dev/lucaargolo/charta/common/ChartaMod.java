@@ -48,6 +48,7 @@ import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructurePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorList;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -190,15 +191,24 @@ public abstract class ChartaMod {
         this.packetManager.sendToPlayer(player, new PlayerOptionsPayload(data.getPlayerOptions(player)));
     }
 
-    public abstract void registerEventOnDatapackSync(Consumer<ServerPlayer> consumer);
+    public abstract void registerEventOnDatapackSync(BiConsumer<MinecraftServer, ServerPlayer> consumer);
 
-    private void onDatapackSync(ServerPlayer player) {
-        this.packetManager.sendToPlayer(player, new ImagesPayload(
-                new HashMap<>(ChartaMod.SUIT_IMAGES.getImages()),
-                new HashMap<>(ChartaMod.CARD_IMAGES.getImages()),
-                new HashMap<>(ChartaMod.DECK_IMAGES.getImages())
-        ));
-        this.packetManager.sendToPlayer(player, new CardDecksPayload(new LinkedHashMap<>(ChartaMod.CARD_DECKS.getDecks())));
+    private void onDatapackSync(MinecraftServer server, @Nullable ServerPlayer player) {
+        if(player != null) {
+            this.packetManager.sendToPlayer(player, new ImagesPayload(
+                    new HashMap<>(ChartaMod.SUIT_IMAGES.getImages()),
+                    new HashMap<>(ChartaMod.CARD_IMAGES.getImages()),
+                    new HashMap<>(ChartaMod.DECK_IMAGES.getImages())
+            ));
+            this.packetManager.sendToPlayer(player, new CardDecksPayload(new LinkedHashMap<>(ChartaMod.CARD_DECKS.getDecks())));
+        }else{
+            this.packetManager.sendToAllPlayers(server, new ImagesPayload(
+                    new HashMap<>(ChartaMod.SUIT_IMAGES.getImages()),
+                    new HashMap<>(ChartaMod.CARD_IMAGES.getImages()),
+                    new HashMap<>(ChartaMod.DECK_IMAGES.getImages())
+            ));
+            this.packetManager.sendToAllPlayers(server, new CardDecksPayload(new LinkedHashMap<>(ChartaMod.CARD_DECKS.getDecks())));
+        }
     }
 
     private void addBuildingToPool(Registry<StructureTemplatePool> templatePoolRegistry, Registry<StructureProcessorList> processorListRegistry, ResourceLocation poolRL, String nbtPieceRL, int weight) {
