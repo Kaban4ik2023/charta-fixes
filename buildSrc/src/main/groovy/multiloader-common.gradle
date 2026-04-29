@@ -1,6 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id "com.modrinth.minotaur"
 }
 
 base {
@@ -121,3 +122,21 @@ publishing {
         }
     }
 }
+
+if(project.name == "fabric" || project.name == "neoforge") {
+    modrinth {
+        token = System.getenv("MODRINTH_TOKEN")
+        projectId = mod_id
+        versionNumber = version
+        versionType = "release"
+        uploadFile = jar
+        gameVersions = [minecraft_version]
+        loaders = [project.name]
+        if(project.name == "fabric") {
+            dependencies {
+                required.project "fabric-api"
+            }
+        }
+    }
+}
+
