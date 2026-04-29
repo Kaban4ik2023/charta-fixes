@@ -5,4 +5,6 @@ plugins {
     id 'net.neoforged.moddev' version '2.0.115' apply false
     // see https://github.com/modrinth/minotaur for new versions
     id 'com.modrinth.minotaur' version "2.+" apply false
+    // see https://github.com/Darkhax/CurseForgeGradle for new versions
+    id 'net.darkhax.curseforgegradle' version "1.1.28" apply false
 }
