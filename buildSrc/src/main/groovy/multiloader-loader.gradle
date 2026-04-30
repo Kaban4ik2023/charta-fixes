@@ -24,13 +24,13 @@ dependencies {
 }
 
 if (project.name == "fabric") {
-    def fabricCommonDir = layout.buildDirectory.dir("generated/sources/fabricCommon")
+    def fabricCommonDir = file("$buildDir/generated/sources/fabricCommon")
     def prepareFabricCommonJava = tasks.register("prepareFabricCommonJava", Sync) {
         dependsOn(configurations.commonJava)
         from(configurations.commonJava)
         into(fabricCommonDir)
 
-        filter { String line ->
+        filter { line ->
             line
                 .replace("import net.neoforged.api.distmarker.Dist;", "import net.fabricmc.api.EnvType;")
                 .replace("import net.neoforged.api.distmarker.OnlyIn;", "import net.fabricmc.api.Environment;")
@@ -45,17 +45,17 @@ if (project.name == "fabric") {
 
     tasks.named('compileJava', JavaCompile) {
         dependsOn(prepareFabricCommonJava)
-        source(fabricCommonDir)
+        source(files(prepareFabricCommonJava))
     }
 
     tasks.named('javadoc', Javadoc).configure {
         dependsOn(prepareFabricCommonJava)
-        source(fabricCommonDir)
+        source(files(prepareFabricCommonJava))
     }
 
     tasks.named('sourcesJar', Jar) {
         dependsOn(prepareFabricCommonJava)
-        from(fabricCommonDir)
+        from(files(prepareFabricCommonJava))
     }
 } else {
     tasks.named('compileJava', JavaCompile) {
