@@ -12,8 +12,11 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.decoration.LeashFenceKnotEntity;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
+@OnlyIn(Dist.CLIENT)
 public class IronLeashKnotRenderer extends EntityRenderer<IronLeashFenceKnotEntity> {
 
     private static final ResourceLocation IRON_KNOT_LOCATION = ChartaMod.id("textures/entity/iron_lead_knot.png");

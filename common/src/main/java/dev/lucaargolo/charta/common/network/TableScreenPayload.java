@@ -8,6 +8,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
@@ -44,6 +46,7 @@ public record TableScreenPayload(BlockPos pos, Deck deck, int[] players) impleme
             TableScreenPayload::new
     );
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(TableScreenPayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft.getInstance().setScreen(new TableScreen(payload.pos, payload.deck, payload.players));

@@ -12,6 +12,8 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
@@ -39,6 +41,7 @@ public record LastFunPayload(ItemStack deckStack) implements CustomPacketPayload
         });
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(LastFunPayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft mc = Minecraft.getInstance();

@@ -9,6 +9,8 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
@@ -24,6 +26,7 @@ public record PlayerOptionsPayload(HashMap<ResourceLocation, byte[]> playerOptio
             PlayerOptionsPayload::new
     );
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(PlayerOptionsPayload payload, Executor executor) {
         executor.execute(() -> {
             ChartaModClient.LOCAL_OPTIONS.clear();

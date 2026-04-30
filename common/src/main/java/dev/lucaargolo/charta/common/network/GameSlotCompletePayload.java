@@ -13,6 +13,8 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -57,6 +59,7 @@ public record GameSlotCompletePayload(BlockPos pos, int index, List<Card> cards,
         return TYPE;
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameSlotCompletePayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft minecraft = Minecraft.getInstance();

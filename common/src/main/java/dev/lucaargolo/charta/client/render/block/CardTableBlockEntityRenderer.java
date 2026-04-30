@@ -19,9 +19,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.joml.Vector3f;
 
+@OnlyIn(Dist.CLIENT)
 public class CardTableBlockEntityRenderer implements BlockEntityRenderer<CardTableBlockEntity> {
 
     private final BlockEntityRendererProvider.Context context;

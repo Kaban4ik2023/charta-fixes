@@ -9,12 +9,15 @@ import dev.lucaargolo.charta.common.menu.CardSlot;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@OnlyIn(Dist.CLIENT)
 public class CardSlotWidget<G extends Game<G, M>, M extends AbstractCardMenu<G, M>> extends AbstractCardWidget {
 
     private final GameScreen<G, M> parent;

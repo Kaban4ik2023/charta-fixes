@@ -10,6 +10,8 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.entity.player.Player;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -31,6 +33,7 @@ public record UpdateCardContainerSlotPayload(int containerId, int stateId, int s
             UpdateCardContainerSlotPayload::new
     );
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(UpdateCardContainerSlotPayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft minecraft = Minecraft.getInstance();

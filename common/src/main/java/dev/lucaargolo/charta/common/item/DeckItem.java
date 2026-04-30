@@ -16,6 +16,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,6 +47,7 @@ public class DeckItem extends Item {
         return InteractionResultHolder.success(stack);
     }
 
+    @OnlyIn(Dist.CLIENT)
     private static void openScreen(Deck deck) {
         Minecraft minecraft = Minecraft.getInstance();
         minecraft.setScreen(new DeckScreen(null, deck));

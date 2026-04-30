@@ -8,6 +8,8 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.server.level.ServerPlayer;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
@@ -22,6 +24,7 @@ public record GameLeavePayload() implements CustomPacketPayload {
         executor.execute(player::stopRiding);
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameLeavePayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft minecraft = Minecraft.getInstance();

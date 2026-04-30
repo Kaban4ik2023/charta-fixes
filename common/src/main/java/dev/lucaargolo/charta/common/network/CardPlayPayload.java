@@ -10,6 +10,8 @@ import net.minecraft.network.chat.ComponentSerialization;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.apache.commons.lang3.tuple.ImmutableTriple;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +31,7 @@ public record CardPlayPayload(Component playerName, int playerCards, Component p
         CardPlayPayload::new
     );
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(CardPlayPayload payload, Executor executor) {
         executor.execute(() -> {
             ChartaModClient.LOCAL_HISTORY.add(ImmutableTriple.of(payload.playerName, payload.playerCards, payload.play));

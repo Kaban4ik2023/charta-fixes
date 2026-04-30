@@ -9,6 +9,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.world.level.Level;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
@@ -28,6 +30,7 @@ public record GameSlotResetPayload(BlockPos pos) implements CustomPacketPayload 
         return TYPE;
     }
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameSlotResetPayload payload, Executor executor) {
         executor.execute(() -> {
             Minecraft minecraft = Minecraft.getInstance();

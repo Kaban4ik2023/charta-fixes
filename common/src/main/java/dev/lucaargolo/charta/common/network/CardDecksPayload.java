@@ -7,6 +7,8 @@ import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.LinkedHashMap;
@@ -22,6 +24,7 @@ public record CardDecksPayload(LinkedHashMap<ResourceLocation, Deck> cardDecks) 
         CardDecksPayload::new
     );
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(CardDecksPayload payload, Executor executor) {
         executor.execute(() -> {
             ChartaMod.CARD_DECKS.setDecks(payload.cardDecks);

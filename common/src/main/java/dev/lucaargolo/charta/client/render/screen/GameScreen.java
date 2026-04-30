@@ -31,6 +31,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.minecraft.world.item.DyeColor;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
@@ -39,6 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 
+@OnlyIn(Dist.CLIENT)
 public abstract class GameScreen<G extends Game<G, M>, M extends AbstractCardMenu<G, M>> extends AbstractContainerScreen<M> implements HoverableRenderable {
 
     public static final ResourceLocation WIDGETS = ChartaMod.id("textures/gui/widgets.png");

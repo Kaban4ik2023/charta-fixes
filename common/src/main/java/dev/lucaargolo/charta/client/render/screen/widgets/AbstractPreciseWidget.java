@@ -3,7 +3,10 @@ package dev.lucaargolo.charta.client.render.screen.widgets;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public abstract class AbstractPreciseWidget extends AbstractWidget {
 
     private float preciseX;

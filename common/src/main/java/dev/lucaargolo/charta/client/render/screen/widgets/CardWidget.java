@@ -6,9 +6,12 @@ import dev.lucaargolo.charta.common.game.api.card.Card;
 import dev.lucaargolo.charta.common.game.api.card.Deck;
 import dev.lucaargolo.charta.common.utils.HoverableRenderable;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+@OnlyIn(Dist.CLIENT)
 public class CardWidget extends AbstractCardWidget {
 
     private final ResourceLocation glowTextureId;

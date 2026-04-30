@@ -11,8 +11,11 @@ import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemDisplayContext;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
+@OnlyIn(Dist.CLIENT)
 public class BarShelfBlockEntityRenderer implements BlockEntityRenderer<BarShelfBlockEntity> {
 
     private final BlockEntityRendererProvider.Context context;

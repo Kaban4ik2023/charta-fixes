@@ -7,9 +7,12 @@ import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 import java.util.function.Function;
 
+@OnlyIn(Dist.CLIENT)
 public abstract class ModRenderTypeManager extends RenderType {
 
     private static final RenderStateShard.ShaderStateShard ENTITY_CARD_SHADER = new RenderStateShard.ShaderStateShard(() -> ChartaModClient.getShaderManager().getEntityCardShader());

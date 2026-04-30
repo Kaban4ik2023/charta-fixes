@@ -5,6 +5,8 @@ import dev.lucaargolo.charta.common.ChartaMod;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.Executor;
@@ -15,6 +17,7 @@ public record GameStartPayload() implements CustomPacketPayload {
 
     public static StreamCodec<ByteBuf, GameStartPayload> STREAM_CODEC = StreamCodec.unit(new GameStartPayload());
 
+    @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameStartPayload payload, Executor executor) {
         executor.execute(ChartaModClient.LOCAL_HISTORY::clear);
     }

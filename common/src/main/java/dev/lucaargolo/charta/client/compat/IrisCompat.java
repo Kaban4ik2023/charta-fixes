@@ -5,7 +5,10 @@ import dev.lucaargolo.charta.common.utils.CardImageUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
+@OnlyIn(Dist.CLIENT)
 public class IrisCompat {
 
     public static boolean isPresent() {
