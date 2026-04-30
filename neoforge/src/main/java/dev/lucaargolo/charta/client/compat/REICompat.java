@@ -6,8 +6,11 @@ import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.forge.REIPluginClient;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.InteractionResult;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 @REIPluginClient
+@OnlyIn(Dist.CLIENT)
 public class REICompat implements REIClientPlugin {
 
     @Override

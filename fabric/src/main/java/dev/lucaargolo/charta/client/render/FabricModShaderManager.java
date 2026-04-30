@@ -1,6 +1,8 @@
 package dev.lucaargolo.charta.client.render;
 
 import com.mojang.blaze3d.vertex.VertexFormat;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendering.v1.CoreShaderRegistrationCallback;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+@Environment(EnvType.CLIENT)
 public class FabricModShaderManager extends ModShaderManager {
 
     private final Map<ResourceLocation, Pair<VertexFormat, Consumer<ShaderInstance>>> shadersToRegister = new HashMap<>();

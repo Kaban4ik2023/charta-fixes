@@ -4,6 +4,8 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import dev.lucaargolo.charta.common.NeoForgeChartaMod;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.neoforge.client.event.RegisterShadersEvent;
 import org.apache.commons.lang3.tuple.Pair;
@@ -15,6 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+@OnlyIn(Dist.CLIENT)
 public class NeoForgeModShaderManager extends ModShaderManager {
 
     private final Map<ResourceLocation, Pair<VertexFormat, Consumer<ShaderInstance>>> shadersToRegister = new HashMap<>();

@@ -3,9 +3,12 @@ package dev.lucaargolo.charta.client.compat;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.screen.OverlayDecider;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.world.InteractionResult;
 
+@Environment(EnvType.CLIENT)
 public class REICompat implements REIClientPlugin {
 
     @Override

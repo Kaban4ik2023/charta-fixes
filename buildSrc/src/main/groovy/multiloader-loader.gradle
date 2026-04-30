@@ -23,9 +23,57 @@ dependencies {
     commonResources project(path: ':common', configuration: 'commonResources')
 }
 
-tasks.named('compileJava', JavaCompile) {
-    dependsOn(configurations.commonJava)
-    source(configurations.commonJava)
+def commonJavaSource = configurations.commonJava
+
+if (project.name == "fabric") {
+    def fabricCommonJavaDir = layout.buildDirectory.dir("generated/sources/fabricCommonJava")
+    def prepareFabricCommonJava = tasks.register("prepareFabricCommonJava", Sync) {
+        dependsOn(commonJavaSource)
+        from(commonJavaSource)
+        into(fabricCommonJavaDir)
+
+        filter { String line ->
+            line
+                .replace("import net.neoforged.api.distmarker.Dist;", "import net.fabricmc.api.EnvType;")
+                .replace("import net.neoforged.api.distmarker.OnlyIn;", "import net.fabricmc.api.Environment;")
+                .replace("@OnlyIn(Dist.CLIENT)", "@Environment(EnvType.CLIENT)")
+                .replace("@OnlyIn(Dist.SERVER)", "@Environment(EnvType.SERVER)")
+                .replace("OnlyIn(Dist.CLIENT)", "Environment(EnvType.CLIENT)")
+                .replace("OnlyIn(Dist.SERVER)", "Environment(EnvType.SERVER)")
+                .replace("Dist.CLIENT", "EnvType.CLIENT")
+                .replace("Dist.SERVER", "EnvType.SERVER")
+        }
+    }
+
+    tasks.named('compileJava', JavaCompile) {
+        dependsOn(prepareFabricCommonJava)
+        source(fabricCommonJavaDir)
+    }
+
+    tasks.named('javadoc', Javadoc).configure {
+        dependsOn(prepareFabricCommonJava)
+        source(fabricCommonJavaDir)
+    }
+
+    tasks.named('sourcesJar', Jar) {
+        dependsOn(prepareFabricCommonJava)
+        from(fabricCommonJavaDir)
+    }
+} else {
+    tasks.named('compileJava', JavaCompile) {
+        dependsOn(commonJavaSource)
+        source(commonJavaSource)
+    }
+
+    tasks.named('javadoc', Javadoc).configure {
+        dependsOn(commonJavaSource)
+        source(commonJavaSource)
+    }
+
+    tasks.named('sourcesJar', Jar) {
+        dependsOn(commonJavaSource)
+        from(commonJavaSource)
+    }
 }
 
 processResources {
@@ -33,14 +81,7 @@ processResources {
     from(configurations.commonResources)
 }
 
-tasks.named('javadoc', Javadoc).configure {
-    dependsOn(configurations.commonJava)
-    source(configurations.commonJava)
-}
-
 tasks.named('sourcesJar', Jar) {
-    dependsOn(configurations.commonJava)
-    from(configurations.commonJava)
     dependsOn(configurations.commonResources)
     from(configurations.commonResources)
 }

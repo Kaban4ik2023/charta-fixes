@@ -22,6 +22,8 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterClientReloadListenersEvent;
@@ -37,6 +39,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Supplier;
 
+@OnlyIn(Dist.CLIENT)
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class NeoForgeChartaModClient extends ChartaModClient {
 

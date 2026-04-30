@@ -4,6 +4,8 @@ import dev.lucaargolo.charta.common.block.ModBlocks;
 import dev.lucaargolo.charta.common.registry.ModItemRegistry;
 import dev.lucaargolo.charta.common.registry.minecraft.MinecraftEntry;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
@@ -42,6 +44,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import java.util.function.Supplier;
 
+@Environment(EnvType.CLIENT)
 public class FabricChartaModClient extends ChartaModClient implements ClientModInitializer {
 
     private final List<ResourceLocation> additionalModels = new ArrayList<>();
