@@ -61,28 +61,31 @@ public record GameSlotCompletePayload(BlockPos pos, int index, List<Card> cards,
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameSlotCompletePayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            Level level = minecraft.level;
-            if(level != null) {
-                level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(cardTable -> {
-                    List<Card> list = new LinkedList<>(payload.cards);
-                    if(payload.index == cardTable.getSlotCount()) {
-                        cardTable.addSlot(new GameSlot(list, payload.x, payload.y, payload.z, payload.angle, payload.stackDirection, payload.maxStack, payload.centered));
-                    }else{
-                        GameSlot tracked = cardTable.getSlot(payload.index);
-                        tracked.setCards(list);
-                        tracked.setX(payload.x);
-                        tracked.setY(payload.y);
-                        tracked.setZ(payload.z);
-                        tracked.setAngle(payload.angle);
-                        tracked.setStackDirection(payload.stackDirection);
-                        tracked.setMaxStack(payload.maxStack);
-                        tracked.setCentered(payload.centered);
-                    }
-                });
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(GameSlotCompletePayload payload, Executor executor) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Level level = minecraft.level;
+        if(level != null) {
+            level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(cardTable -> {
+                List<Card> list = new LinkedList<>(payload.cards);
+                if(payload.index == cardTable.getSlotCount()) {
+                    cardTable.addSlot(new GameSlot(list, payload.x, payload.y, payload.z, payload.angle, payload.stackDirection, payload.maxStack, payload.centered));
+                }else{
+                    GameSlot tracked = cardTable.getSlot(payload.index);
+                    tracked.setCards(list);
+                    tracked.setX(payload.x);
+                    tracked.setY(payload.y);
+                    tracked.setZ(payload.z);
+                    tracked.setAngle(payload.angle);
+                    tracked.setStackDirection(payload.stackDirection);
+                    tracked.setMaxStack(payload.maxStack);
+                    tracked.setCentered(payload.centered);
+                }
+            });
+        }
     }
 
 }

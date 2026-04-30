@@ -43,19 +43,22 @@ public record GameSlotPositionPayload(BlockPos pos, int index, float x, float y,
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameSlotPositionPayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            Level level = minecraft.level;
-            if(level != null) {
-                level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(cardTable -> {
-                    GameSlot slot = cardTable.getSlot(payload.index);
-                    slot.setX(payload.x);
-                    slot.setY(payload.y);
-                    slot.setZ(payload.z);
-                    slot.setAngle(payload.angle);
-                });
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(GameSlotPositionPayload payload, Executor executor) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Level level = minecraft.level;
+        if(level != null) {
+            level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(cardTable -> {
+                GameSlot slot = cardTable.getSlot(payload.index);
+                slot.setX(payload.x);
+                slot.setY(payload.y);
+                slot.setZ(payload.z);
+                slot.setAngle(payload.angle);
+            });
+        }
     }
 
 }

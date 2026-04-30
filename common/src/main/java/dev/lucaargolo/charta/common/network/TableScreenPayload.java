@@ -48,9 +48,12 @@ public record TableScreenPayload(BlockPos pos, Deck deck, int[] players) impleme
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(TableScreenPayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft.getInstance().setScreen(new TableScreen(payload.pos, payload.deck, payload.players));
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(TableScreenPayload payload, Executor executor) {
+        Minecraft.getInstance().setScreen(new TableScreen(payload.pos, payload.deck, payload.players));
     }
 
     @Override

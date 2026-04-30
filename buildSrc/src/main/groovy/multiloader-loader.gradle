@@ -23,14 +23,12 @@ dependencies {
     commonResources project(path: ':common', configuration: 'commonResources')
 }
 
-def commonJavaSource = configurations.commonJava
-
 if (project.name == "fabric") {
-    def fabricCommonJavaDir = layout.buildDirectory.dir("generated/sources/fabricCommonJava")
+    def fabricCommonDir = layout.buildDirectory.dir("generated/sources/fabricCommon")
     def prepareFabricCommonJava = tasks.register("prepareFabricCommonJava", Sync) {
-        dependsOn(commonJavaSource)
-        from(commonJavaSource)
-        into(fabricCommonJavaDir)
+        dependsOn(configurations.commonJava)
+        from(configurations.commonJava)
+        into(fabricCommonDir)
 
         filter { String line ->
             line
@@ -47,32 +45,32 @@ if (project.name == "fabric") {
 
     tasks.named('compileJava', JavaCompile) {
         dependsOn(prepareFabricCommonJava)
-        source(fabricCommonJavaDir)
+        source(fabricCommonDir)
     }
 
     tasks.named('javadoc', Javadoc).configure {
         dependsOn(prepareFabricCommonJava)
-        source(fabricCommonJavaDir)
+        source(fabricCommonDir)
     }
 
     tasks.named('sourcesJar', Jar) {
         dependsOn(prepareFabricCommonJava)
-        from(fabricCommonJavaDir)
+        from(fabricCommonDir)
     }
 } else {
     tasks.named('compileJava', JavaCompile) {
-        dependsOn(commonJavaSource)
-        source(commonJavaSource)
+        dependsOn(configurations.commonJava)
+        source(configurations.commonJava)
     }
 
     tasks.named('javadoc', Javadoc).configure {
-        dependsOn(commonJavaSource)
-        source(commonJavaSource)
+        dependsOn(configurations.commonJava)
+        source(configurations.commonJava)
     }
 
     tasks.named('sourcesJar', Jar) {
-        dependsOn(commonJavaSource)
-        from(commonJavaSource)
+        dependsOn(configurations.commonJava)
+        from(configurations.commonJava)
     }
 }
 

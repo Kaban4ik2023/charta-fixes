@@ -26,15 +26,18 @@ public record GameLeavePayload() implements CustomPacketPayload {
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameLeavePayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            minecraft.setScreen(new ConfirmScreen(null, Component.translatable("message.charta.leaving_game"), true, () -> {
-                if(minecraft.player != null) {
-                    minecraft.player.stopRiding();
-                    ChartaMod.getPacketManager().sendToServer(new GameLeavePayload());
-                }
-            }));
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(GameLeavePayload payload, Executor executor) {
+        Minecraft minecraft = Minecraft.getInstance();
+        minecraft.setScreen(new ConfirmScreen(null, Component.translatable("message.charta.leaving_game"), true, () -> {
+            if(minecraft.player != null) {
+                minecraft.player.stopRiding();
+                ChartaMod.getPacketManager().sendToServer(new GameLeavePayload());
+            }
+        }));
     }
 
     @Override

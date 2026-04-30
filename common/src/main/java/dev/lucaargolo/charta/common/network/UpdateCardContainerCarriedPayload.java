@@ -34,13 +34,16 @@ public record UpdateCardContainerCarriedPayload(int containerId, int stateId, Li
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(UpdateCardContainerCarriedPayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            Player player = minecraft.player;
-            if(player != null && player.containerMenu instanceof AbstractCardMenu<?, ?> cardMenu && cardMenu.containerId == payload.containerId) {
-                cardMenu.setCarriedCards(payload.stateId, new GameSlot(payload.cards));
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(UpdateCardContainerCarriedPayload payload, Executor executor) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Player player = minecraft.player;
+        if(player != null && player.containerMenu instanceof AbstractCardMenu<?, ?> cardMenu && cardMenu.containerId == payload.containerId) {
+            cardMenu.setCarriedCards(payload.stateId, new GameSlot(payload.cards));
+        }
     }
 
     @Override

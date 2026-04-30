@@ -33,13 +33,16 @@ public record ImagesPayload(HashMap<ResourceLocation, SuitImage> suitImages, Has
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(ImagesPayload payload, Executor executor) {
-        executor.execute(() -> {
-            ChartaModClient.clearImages();
-            ChartaMod.SUIT_IMAGES.setImages(payload.suitImages());
-            ChartaMod.CARD_IMAGES.setImages(payload.cardImages());
-            ChartaMod.DECK_IMAGES.setImages(payload.deckImages());
-            ChartaModClient.generateImages();
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(ImagesPayload payload, Executor executor) {
+        ChartaModClient.clearImages();
+        ChartaMod.SUIT_IMAGES.setImages(payload.suitImages());
+        ChartaMod.CARD_IMAGES.setImages(payload.cardImages());
+        ChartaMod.DECK_IMAGES.setImages(payload.deckImages());
+        ChartaModClient.generateImages();
     }
 
     @Override

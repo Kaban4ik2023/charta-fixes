@@ -26,20 +26,25 @@ public record PlayerOptionsPayload(HashMap<ResourceLocation, byte[]> playerOptio
             PlayerOptionsPayload::new
     );
 
-    @OnlyIn(Dist.CLIENT)
-    public static void handleClient(PlayerOptionsPayload payload, Executor executor) {
-        executor.execute(() -> {
-            ChartaModClient.LOCAL_OPTIONS.clear();
-            ChartaModClient.LOCAL_OPTIONS.putAll(payload.playerOptions);
-        });
-    }
-
     public static void handleServer(PlayerOptionsPayload payload, ServerPlayer player, Executor executor) {
         executor.execute(() -> {
             PlayerOptionData data = player.server.overworld().getDataStorage().computeIfAbsent(PlayerOptionData.factory(), "charta_player_options");
             data.setPlayerOptions(player, payload.playerOptions());
         });
     }
+
+    @OnlyIn(Dist.CLIENT)
+    public static void handleClient(PlayerOptionsPayload payload, Executor executor) {
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(PlayerOptionsPayload payload, Executor executor) {
+        ChartaModClient.LOCAL_OPTIONS.clear();
+        ChartaModClient.LOCAL_OPTIONS.putAll(payload.playerOptions);
+    }
+
+
 
     @Override
     public @NotNull CustomPacketPayload.Type<? extends CustomPacketPayload> type() {

@@ -32,13 +32,16 @@ public record GameSlotResetPayload(BlockPos pos) implements CustomPacketPayload 
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(GameSlotResetPayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft minecraft = Minecraft.getInstance();
-            Level level = minecraft.level;
-            if(level != null) {
-                level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(CardTableBlockEntity::resetSlots);
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(GameSlotResetPayload payload, Executor executor) {
+        Minecraft minecraft = Minecraft.getInstance();
+        Level level = minecraft.level;
+        if(level != null) {
+            level.getBlockEntity(payload.pos, ModBlockEntityTypes.CARD_TABLE.get()).ifPresent(CardTableBlockEntity::resetSlots);
+        }
     }
 
 }

@@ -26,9 +26,12 @@ public record CardDecksPayload(LinkedHashMap<ResourceLocation, Deck> cardDecks) 
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(CardDecksPayload payload, Executor executor) {
-        executor.execute(() -> {
-            ChartaMod.CARD_DECKS.setDecks(payload.cardDecks);
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(CardDecksPayload payload, Executor executor) {
+        ChartaMod.CARD_DECKS.setDecks(payload.cardDecks);
     }
 
     @Override

@@ -33,13 +33,16 @@ public record CardPlayPayload(Component playerName, int playerCards, Component p
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(CardPlayPayload payload, Executor executor) {
-        executor.execute(() -> {
-            ChartaModClient.LOCAL_HISTORY.add(ImmutableTriple.of(payload.playerName, payload.playerCards, payload.play));
-            Minecraft mc = Minecraft.getInstance();
-            if(mc.screen instanceof HistoryScreen screen) {
-                screen.init(mc, mc.getWindow().getGuiScaledWidth(), mc.getWindow().getGuiScaledHeight());
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(CardPlayPayload payload, Executor executor) {
+        ChartaModClient.LOCAL_HISTORY.add(ImmutableTriple.of(payload.playerName, payload.playerCards, payload.play));
+        Minecraft mc = Minecraft.getInstance();
+        if(mc.screen instanceof HistoryScreen screen) {
+            screen.init(mc, mc.getWindow().getGuiScaledWidth(), mc.getWindow().getGuiScaledHeight());
+        }
     }
 
     @Override

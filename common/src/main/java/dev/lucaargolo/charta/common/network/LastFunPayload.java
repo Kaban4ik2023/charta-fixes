@@ -43,13 +43,16 @@ public record LastFunPayload(ItemStack deckStack) implements CustomPacketPayload
 
     @OnlyIn(Dist.CLIENT)
     public static void handleClient(LastFunPayload payload, Executor executor) {
-        executor.execute(() -> {
-            Minecraft mc = Minecraft.getInstance();
-            if(mc.level != null && mc.player != null && mc.screen instanceof FunScreen funScreen) {
-                mc.level.playLocalSound(mc.player.getX(), mc.player.getY(), mc.player.getZ(), SoundEvents.TOTEM_USE, mc.player.getSoundSource(), 1.0F, 1.0F, false);
-                funScreen.displayItemActivation(payload.deckStack);
-            }
-        });
+        executor.execute(() -> handleClientInner(payload, executor));
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    private static void handleClientInner(LastFunPayload payload, Executor executor) {
+        Minecraft mc = Minecraft.getInstance();
+        if(mc.level != null && mc.player != null && mc.screen instanceof FunScreen funScreen) {
+            mc.level.playLocalSound(mc.player.getX(), mc.player.getY(), mc.player.getZ(), SoundEvents.TOTEM_USE, mc.player.getSoundSource(), 1.0F, 1.0F, false);
+            funScreen.displayItemActivation(payload.deckStack);
+        }
     }
 
     @Override
