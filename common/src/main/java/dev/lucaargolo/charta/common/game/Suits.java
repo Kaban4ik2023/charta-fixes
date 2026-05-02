@@ -11,7 +11,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 
-import java.util.Set;
+import java.util.List;
 
 public class Suits {
 
@@ -24,13 +24,13 @@ public class Suits {
     public static final Suit HEARTS = MOD_REGISTRY.registerDirectly("hearts", Suit::new);
     public static final Suit CLUBS = MOD_REGISTRY.registerDirectly("clubs", Suit::new);
     public static final Suit DIAMONDS = MOD_REGISTRY.registerDirectly("diamonds", Suit::new);
-    public static final Set<Suit> STANDARD = Set.of(SPADES, HEARTS, CLUBS, DIAMONDS);
+    public static final List<Suit> STANDARD = List.of(SPADES, HEARTS, CLUBS, DIAMONDS);
 
     public static final Suit RED = MOD_REGISTRY.registerDirectly("red", Suit::new);
     public static final Suit YELLOW = MOD_REGISTRY.registerDirectly("yellow", Suit::new);
     public static final Suit GREEN = MOD_REGISTRY.registerDirectly("green", Suit::new);
     public static final Suit BLUE = MOD_REGISTRY.registerDirectly("blue", Suit::new);
-    public static final Set<Suit> FUN = Set.of(Suits.RED, Suits.YELLOW, Suits.GREEN, Suits.BLUE);
+    public static final List<Suit> FUN = List.of(Suits.RED, Suits.YELLOW, Suits.GREEN, Suits.BLUE);
 
     public static Registry<Suit> getRegistry() {
         return MOD_REGISTRY.getRegistry();

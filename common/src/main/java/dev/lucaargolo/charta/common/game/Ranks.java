@@ -11,7 +11,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 
-import java.util.Set;
+import java.util.List;
 
 public class Ranks {
 
@@ -33,7 +33,7 @@ public class Ranks {
     public static final Rank QUEEN = MOD_REGISTRY.registerDirectly("queen", () -> new Rank(12));
     public static final Rank KING = MOD_REGISTRY.registerDirectly("king", () -> new Rank(13));
     public static final Rank JOKER = MOD_REGISTRY.registerDirectly("joker", () -> new Rank(14));
-    public static final Set<Rank> STANDARD = Set.of(ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING);
+    public static final List<Rank> STANDARD = List.of(ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING);
 
     public static final Rank WILD = MOD_REGISTRY.registerDirectly("wild", () -> new Rank(-1));
     public static final Rank ZERO = MOD_REGISTRY.registerDirectly("zero", () -> new Rank(0));
@@ -42,7 +42,7 @@ public class Ranks {
     public static final Rank REVERSE = MOD_REGISTRY.registerDirectly("reverse", () -> new Rank(11));
     public static final Rank PLUS_2 = MOD_REGISTRY.registerDirectly("plustwo", () -> new Rank(13));
     public static final Rank WILD_PLUS_4 = MOD_REGISTRY.registerDirectly("wildplusfour", () -> new Rank(14));
-    public static final Set<Rank> FUN = Set.of(ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO, BLOCK, REVERSE, PLUS_2, WILD, WILD_PLUS_4);
+    public static final List<Rank> FUN = List.of(ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, ZERO, BLOCK, REVERSE, PLUS_2, WILD, WILD_PLUS_4);
 
     public static Registry<Rank> getRegistry() {
         return MOD_REGISTRY.getRegistry();
