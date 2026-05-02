@@ -8,6 +8,8 @@ import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -60,6 +62,7 @@ public abstract class GameOption<T> {
             consumer.accept(this.get());
     }
 
+    @OnlyIn(Dist.CLIENT)
     public abstract Widget getWidget(Consumer<T> consumer, Font font, int width, int height, boolean showcase);
 
     public static class Widget extends ContainerObjectSelectionList.Entry<Widget> {
@@ -114,6 +117,7 @@ public abstract class GameOption<T> {
             return value == 1;
         }
 
+        @OnlyIn(Dist.CLIENT)
         public Widget getWidget(Consumer<Boolean> consumer, Font font, int width, int height, boolean showcase) {
             Checkbox.Builder builder = Checkbox.builder(this.getTitle(), font);
             builder.tooltip(Tooltip.create(this.getDescription()));
@@ -152,6 +156,7 @@ public abstract class GameOption<T> {
             return (int) value;
         }
 
+        @OnlyIn(Dist.CLIENT)
         public Widget getWidget(Consumer<Integer> consumer, Font font, int width, int height, boolean showcase) {
             Function<Integer, Component> message = (i) -> this.getTitle().copy().append(": ").append(Integer.toString(i));
             AbstractSliderButton slider = new AbstractSliderButton(0, 0, width, height, message.apply(this.get()), this.get() * (1.0/(max - min))) {
