@@ -155,7 +155,7 @@ public class FunGame extends Game<FunGame, FunMenu> {
         }
 
         Card last = drawPile.removeLast();
-        while (last != null && (last.rank() == Ranks.WILD || last.rank() == Ranks.JACK || last.rank() == Ranks.QUEEN || last.rank() == Ranks.PLUS_2 || last.rank() == Ranks.WILD_PLUS_4)) {
+        while (last != null && (last.rank() == Ranks.BLOCK || last.rank() == Ranks.REVERSE || last.rank() == Ranks.PLUS_2 || last.rank() == Ranks.WILD || last.rank() == Ranks.WILD_PLUS_4)) {
             drawPile.add(last);
             drawPile.shuffle();
             last = drawPile.removeLast();

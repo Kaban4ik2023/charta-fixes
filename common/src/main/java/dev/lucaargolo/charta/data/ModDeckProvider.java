@@ -23,10 +23,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class ModDeckProvider implements DataProvider {
@@ -140,7 +137,11 @@ public class ModDeckProvider implements DataProvider {
         return CompletableFuture.runAsync(() -> {
             Path outputPath = this.output.getOutputFolder();
             String decksOutputPath = outputPath + File.separator + "data" + File.separator + ChartaMod.MOD_ID + File.separator + "decks";
-            DECKS.forEach((key, deck) -> {
+            DECKS.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey(Comparator.comparing(ResourceLocation::toString)))
+                .forEach(entry -> {
+                ResourceLocation key = entry.getKey();
+                Deck deck = entry.getValue();
                 String path = key.getPath() + ".json";
                 Path fullPath = Path.of(decksOutputPath, path);
                 ByteArrayOutputStream outStream = new ByteArrayOutputStream();

@@ -2,7 +2,18 @@ package dev.lucaargolo.charta.common.game.api.card;
 
 import org.jetbrains.annotations.NotNull;
 
-public record Rank(int ordinal) implements Comparable<Rank> {
+@SuppressWarnings("ClassCanBeRecord")
+public class Rank implements Comparable<Rank> {
+
+    private final int ordinal;
+
+    public Rank(int ordinal) {
+        this.ordinal = ordinal;
+    }
+
+    public int ordinal() {
+        return this.ordinal;
+    }
 
     @Override
     public int compareTo(@NotNull Rank other) {

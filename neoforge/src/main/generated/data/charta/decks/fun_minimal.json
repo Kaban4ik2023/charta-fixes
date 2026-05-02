@@ -26,600 +26,6 @@
     {
       "card": {
         "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_five",
-      "translation": "card.charta.blue.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_five",
-      "translation": "card.charta.blue.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_six",
-      "translation": "card.charta.blue.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_six",
-      "translation": "card.charta.blue.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_seven",
-      "translation": "card.charta.blue.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_seven",
-      "translation": "card.charta.blue.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_eight",
-      "translation": "card.charta.blue.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_eight",
-      "translation": "card.charta.blue.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_nine",
-      "translation": "card.charta.blue.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_nine",
-      "translation": "card.charta.blue.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_block",
-      "translation": "card.charta.blue.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_block",
-      "translation": "card.charta.blue.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_reverse",
-      "translation": "card.charta.blue.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_reverse",
-      "translation": "card.charta.blue.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_plustwo",
-      "translation": "card.charta.blue.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_plustwo",
-      "translation": "card.charta.blue.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:wildplusfour",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_wildplusfour",
-      "translation": "card.charta.wildplusfour"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:wild",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_wild",
-      "translation": "card.charta.wild"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:zero",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_zero",
-      "translation": "card.charta.blue.zero"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:ace",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_one",
-      "translation": "card.charta.blue.one"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:ace",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_one",
-      "translation": "card.charta.blue.one"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_two",
-      "translation": "card.charta.blue.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_two",
-      "translation": "card.charta.blue.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_three",
-      "translation": "card.charta.blue.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_three",
-      "translation": "card.charta.blue.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_four",
-      "translation": "card.charta.blue.four"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:blue",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/blue_four",
-      "translation": "card.charta.blue.four"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_five",
-      "translation": "card.charta.red.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_five",
-      "translation": "card.charta.red.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_six",
-      "translation": "card.charta.red.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_six",
-      "translation": "card.charta.red.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_seven",
-      "translation": "card.charta.red.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_seven",
-      "translation": "card.charta.red.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_eight",
-      "translation": "card.charta.red.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_eight",
-      "translation": "card.charta.red.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_nine",
-      "translation": "card.charta.red.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_nine",
-      "translation": "card.charta.red.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_block",
-      "translation": "card.charta.red.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_block",
-      "translation": "card.charta.red.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_reverse",
-      "translation": "card.charta.red.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_reverse",
-      "translation": "card.charta.red.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_plustwo",
-      "translation": "card.charta.red.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_plustwo",
-      "translation": "card.charta.red.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:wildplusfour",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_wildplusfour",
-      "translation": "card.charta.wildplusfour"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:wild",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_wild",
-      "translation": "card.charta.wild"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:zero",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_zero",
-      "translation": "card.charta.red.zero"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:ace",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_one",
-      "translation": "card.charta.red.one"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:ace",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_one",
-      "translation": "card.charta.red.one"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_two",
-      "translation": "card.charta.red.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_two",
-      "translation": "card.charta.red.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_three",
-      "translation": "card.charta.red.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_three",
-      "translation": "card.charta.red.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_four",
-      "translation": "card.charta.red.four"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:red",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/red_four",
-      "translation": "card.charta.red.four"
-    },
-    {
-      "card": {
-        "components": {
           "charta:suit": "charta:yellow",
           "charta:rank": "charta:five",
           "charta:flipped": false
@@ -665,45 +71,23 @@
       "card": {
         "components": {
           "charta:suit": "charta:yellow",
-          "charta:rank": "charta:seven",
+          "charta:rank": "charta:one",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/yellow_seven",
-      "translation": "card.charta.yellow.seven"
+      "texture": "charta:fun_minimal/yellow_one",
+      "translation": "card.charta.yellow.one"
     },
     {
       "card": {
         "components": {
           "charta:suit": "charta:yellow",
-          "charta:rank": "charta:seven",
+          "charta:rank": "charta:one",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/yellow_seven",
-      "translation": "card.charta.yellow.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_eight",
-      "translation": "card.charta.yellow.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_eight",
-      "translation": "card.charta.yellow.eight"
+      "texture": "charta:fun_minimal/yellow_one",
+      "translation": "card.charta.yellow.one"
     },
     {
       "card": {
@@ -726,94 +110,6 @@
       },
       "texture": "charta:fun_minimal/yellow_nine",
       "translation": "card.charta.yellow.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_block",
-      "translation": "card.charta.yellow.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_block",
-      "translation": "card.charta.yellow.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_reverse",
-      "translation": "card.charta.yellow.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_reverse",
-      "translation": "card.charta.yellow.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_plustwo",
-      "translation": "card.charta.yellow.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_plustwo",
-      "translation": "card.charta.yellow.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:wildplusfour",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_wildplusfour",
-      "translation": "card.charta.wildplusfour"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:wild",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_wild",
-      "translation": "card.charta.wild"
     },
     {
       "card": {
@@ -830,287 +126,584 @@
       "card": {
         "components": {
           "charta:suit": "charta:yellow",
-          "charta:rank": "charta:ace",
+          "charta:rank": "charta:reverse",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/yellow_one",
-      "translation": "card.charta.yellow.one"
+      "texture": "charta:fun_minimal/yellow_reverse",
+      "translation": "card.charta.yellow.reverse"
     },
     {
       "card": {
         "components": {
           "charta:suit": "charta:yellow",
-          "charta:rank": "charta:ace",
+          "charta:rank": "charta:reverse",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/yellow_one",
-      "translation": "card.charta.yellow.one"
+      "texture": "charta:fun_minimal/yellow_reverse",
+      "translation": "card.charta.yellow.reverse"
     },
     {
       "card": {
         "components": {
           "charta:suit": "charta:yellow",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_two",
-      "translation": "card.charta.yellow.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_two",
-      "translation": "card.charta.yellow.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_three",
-      "translation": "card.charta.yellow.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:three",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_three",
-      "translation": "card.charta.yellow.three"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_four",
-      "translation": "card.charta.yellow.four"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:yellow",
-          "charta:rank": "charta:four",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/yellow_four",
-      "translation": "card.charta.yellow.four"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_five",
-      "translation": "card.charta.green.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:five",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_five",
-      "translation": "card.charta.green.five"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_six",
-      "translation": "card.charta.green.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:six",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_six",
-      "translation": "card.charta.green.six"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_seven",
-      "translation": "card.charta.green.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:seven",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_seven",
-      "translation": "card.charta.green.seven"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_eight",
-      "translation": "card.charta.green.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:eight",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_eight",
-      "translation": "card.charta.green.eight"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_nine",
-      "translation": "card.charta.green.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:nine",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_nine",
-      "translation": "card.charta.green.nine"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_block",
-      "translation": "card.charta.green.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:ten",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_block",
-      "translation": "card.charta.green.block"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_reverse",
-      "translation": "card.charta.green.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:jack",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_reverse",
-      "translation": "card.charta.green.reverse"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_plustwo",
-      "translation": "card.charta.green.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:king",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_plustwo",
-      "translation": "card.charta.green.plustwo"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
           "charta:rank": "charta:wildplusfour",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/green_wildplusfour",
+      "texture": "charta:fun_minimal/yellow_wildplusfour",
       "translation": "card.charta.wildplusfour"
     },
     {
       "card": {
         "components": {
-          "charta:suit": "charta:green",
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_three",
+      "translation": "card.charta.yellow.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_three",
+      "translation": "card.charta.yellow.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_four",
+      "translation": "card.charta.yellow.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_four",
+      "translation": "card.charta.yellow.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_eight",
+      "translation": "card.charta.yellow.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_eight",
+      "translation": "card.charta.yellow.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_block",
+      "translation": "card.charta.yellow.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_block",
+      "translation": "card.charta.yellow.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_plustwo",
+      "translation": "card.charta.yellow.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_plustwo",
+      "translation": "card.charta.yellow.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_two",
+      "translation": "card.charta.yellow.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_two",
+      "translation": "card.charta.yellow.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
           "charta:rank": "charta:wild",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/green_wild",
+      "texture": "charta:fun_minimal/yellow_wild",
       "translation": "card.charta.wild"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_seven",
+      "translation": "card.charta.yellow.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:yellow",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/yellow_seven",
+      "translation": "card.charta.yellow.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_five",
+      "translation": "card.charta.blue.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_five",
+      "translation": "card.charta.blue.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_six",
+      "translation": "card.charta.blue.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_six",
+      "translation": "card.charta.blue.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_one",
+      "translation": "card.charta.blue.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_one",
+      "translation": "card.charta.blue.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_nine",
+      "translation": "card.charta.blue.nine"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_nine",
+      "translation": "card.charta.blue.nine"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:zero",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_zero",
+      "translation": "card.charta.blue.zero"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:reverse",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_reverse",
+      "translation": "card.charta.blue.reverse"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:reverse",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_reverse",
+      "translation": "card.charta.blue.reverse"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:wildplusfour",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_wildplusfour",
+      "translation": "card.charta.wildplusfour"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_three",
+      "translation": "card.charta.blue.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_three",
+      "translation": "card.charta.blue.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_four",
+      "translation": "card.charta.blue.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_four",
+      "translation": "card.charta.blue.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_eight",
+      "translation": "card.charta.blue.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_eight",
+      "translation": "card.charta.blue.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_block",
+      "translation": "card.charta.blue.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_block",
+      "translation": "card.charta.blue.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_plustwo",
+      "translation": "card.charta.blue.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_plustwo",
+      "translation": "card.charta.blue.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_two",
+      "translation": "card.charta.blue.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_two",
+      "translation": "card.charta.blue.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:wild",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_wild",
+      "translation": "card.charta.wild"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_seven",
+      "translation": "card.charta.blue.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:blue",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/blue_seven",
+      "translation": "card.charta.blue.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_five",
+      "translation": "card.charta.green.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_five",
+      "translation": "card.charta.green.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_six",
+      "translation": "card.charta.green.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_six",
+      "translation": "card.charta.green.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_one",
+      "translation": "card.charta.green.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_one",
+      "translation": "card.charta.green.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_nine",
+      "translation": "card.charta.green.nine"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_nine",
+      "translation": "card.charta.green.nine"
     },
     {
       "card": {
@@ -1127,45 +720,34 @@
       "card": {
         "components": {
           "charta:suit": "charta:green",
-          "charta:rank": "charta:ace",
+          "charta:rank": "charta:reverse",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/green_one",
-      "translation": "card.charta.green.one"
+      "texture": "charta:fun_minimal/green_reverse",
+      "translation": "card.charta.green.reverse"
     },
     {
       "card": {
         "components": {
           "charta:suit": "charta:green",
-          "charta:rank": "charta:ace",
+          "charta:rank": "charta:reverse",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/green_one",
-      "translation": "card.charta.green.one"
+      "texture": "charta:fun_minimal/green_reverse",
+      "translation": "card.charta.green.reverse"
     },
     {
       "card": {
         "components": {
           "charta:suit": "charta:green",
-          "charta:rank": "charta:two",
+          "charta:rank": "charta:wildplusfour",
           "charta:flipped": false
         }
       },
-      "texture": "charta:fun_minimal/green_two",
-      "translation": "card.charta.green.two"
-    },
-    {
-      "card": {
-        "components": {
-          "charta:suit": "charta:green",
-          "charta:rank": "charta:two",
-          "charta:flipped": false
-        }
-      },
-      "texture": "charta:fun_minimal/green_two",
-      "translation": "card.charta.green.two"
+      "texture": "charta:fun_minimal/green_wildplusfour",
+      "translation": "card.charta.wildplusfour"
     },
     {
       "card": {
@@ -1210,6 +792,424 @@
       },
       "texture": "charta:fun_minimal/green_four",
       "translation": "card.charta.green.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_eight",
+      "translation": "card.charta.green.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_eight",
+      "translation": "card.charta.green.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_block",
+      "translation": "card.charta.green.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_block",
+      "translation": "card.charta.green.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_plustwo",
+      "translation": "card.charta.green.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_plustwo",
+      "translation": "card.charta.green.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_two",
+      "translation": "card.charta.green.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_two",
+      "translation": "card.charta.green.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:wild",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_wild",
+      "translation": "card.charta.wild"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_seven",
+      "translation": "card.charta.green.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:green",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/green_seven",
+      "translation": "card.charta.green.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_five",
+      "translation": "card.charta.red.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:five",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_five",
+      "translation": "card.charta.red.five"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_six",
+      "translation": "card.charta.red.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:six",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_six",
+      "translation": "card.charta.red.six"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_one",
+      "translation": "card.charta.red.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:one",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_one",
+      "translation": "card.charta.red.one"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_nine",
+      "translation": "card.charta.red.nine"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:nine",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_nine",
+      "translation": "card.charta.red.nine"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:zero",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_zero",
+      "translation": "card.charta.red.zero"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:reverse",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_reverse",
+      "translation": "card.charta.red.reverse"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:reverse",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_reverse",
+      "translation": "card.charta.red.reverse"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:wildplusfour",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_wildplusfour",
+      "translation": "card.charta.wildplusfour"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_three",
+      "translation": "card.charta.red.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:three",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_three",
+      "translation": "card.charta.red.three"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_four",
+      "translation": "card.charta.red.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:four",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_four",
+      "translation": "card.charta.red.four"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_eight",
+      "translation": "card.charta.red.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:eight",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_eight",
+      "translation": "card.charta.red.eight"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_block",
+      "translation": "card.charta.red.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:block",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_block",
+      "translation": "card.charta.red.block"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_plustwo",
+      "translation": "card.charta.red.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:plustwo",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_plustwo",
+      "translation": "card.charta.red.plustwo"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_two",
+      "translation": "card.charta.red.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:two",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_two",
+      "translation": "card.charta.red.two"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:wild",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_wild",
+      "translation": "card.charta.wild"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_seven",
+      "translation": "card.charta.red.seven"
+    },
+    {
+      "card": {
+        "components": {
+          "charta:suit": "charta:red",
+          "charta:rank": "charta:seven",
+          "charta:flipped": false
+        }
+      },
+      "texture": "charta:fun_minimal/red_seven",
+      "translation": "card.charta.red.seven"
     }
   ],
   "rarity": "rare",
