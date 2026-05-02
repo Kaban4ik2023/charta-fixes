@@ -274,7 +274,7 @@ public class CrazyEightsGame extends Game<CrazyEightsGame, CrazyEightsMenu> {
         }
         Card card = cards.getLast();
         Card lastCard = playPile.getLast();
-        return isGameReady && lastCard != null && ((isChoosingWild && card.rank() == Ranks.EIGHT) || card.rank() == Ranks.EIGHT || card.rank() == lastCard.rank() || card.suit() == currentSuit);
+        return isGameReady && lastCard != null && ((isChoosingWild && card.rank() == Ranks.BLANK) || card.rank() == Ranks.EIGHT || card.rank() == lastCard.rank() || card.suit() == currentSuit);
     }
 
 }
