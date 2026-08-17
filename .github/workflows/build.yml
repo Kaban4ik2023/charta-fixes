@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+env:
+  CURSEFORGE_API_KEY: "unused"
+  MODRINTH_TOKEN: "unused"
+  
 jobs:
   build:
     runs-on: ubuntu-latest
