@@ -33,9 +33,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     public void buildRecipes(@NotNull RecipeOutput recipeOutput) {
-        this.registries.thenAcceptAsync(provider -> {
-            this.innerBuildRecipes(recipeOutput, provider);
-        });
+        this.innerBuildRecipes(recipeOutput, this.registries.join());
     }
 
     private void innerBuildRecipes(@NotNull RecipeOutput recipeOutput, HolderLookup.Provider provider) {
