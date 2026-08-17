@@ -32,6 +32,11 @@ public class CrazyEightsGame extends Game<CrazyEightsGame, CrazyEightsMenu> {
         public boolean removeAll() {
             return false;
         }
+
+        @Override
+        public boolean canInsertCard(CardPlayer player, List<Card> cards, int index) {
+            return false;
+        }
     };
 
     public boolean isChoosingWild;
@@ -232,7 +237,7 @@ public class CrazyEightsGame extends Game<CrazyEightsGame, CrazyEightsMenu> {
                         //If the player is not a bot, we need to set the game state as choosing wild, and set up the suits hand for the player.
                         isChoosingWild = true;
                         suits.clear();
-                        suits.addAll(gameSuits.stream().map(suit -> Card.create(suit, Ranks.EIGHT)).toList());
+                        suits.addAll(gameSuits.stream().map(suit -> Card.create(suit, Ranks.BLANK)).toList());
                         //They also can't draw during the suit choosing phase, so that's important.
                         drawsLeft = 0;
                         runGame();
