@@ -2,9 +2,6 @@ name: Build Charta
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
 
 env:
   CURSEFORGE_API_KEY: "unused"
