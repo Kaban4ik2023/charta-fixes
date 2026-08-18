@@ -4,7 +4,7 @@ plugins {
 }
 
 base {
-    archivesName = "charta-fix-${project.name}-${minecraft_version}"
+    archivesName = "charta-fix-v2-${project.name}-${minecraft_version}"
 }
 
 java {
