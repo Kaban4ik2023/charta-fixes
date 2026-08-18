@@ -82,6 +82,7 @@ public class CardTableBlockEntity extends BlockEntity {
 
     @Nullable
     private Game<?, ?> game = null;
+    private boolean gameActive = false;
     private int age = 0;
     public boolean playersDirty = true;
 
@@ -97,6 +98,10 @@ public class CardTableBlockEntity extends BlockEntity {
     @Nullable
     public Game<?, ?> getGame() {
         return game;
+    }
+
+    public boolean isGameActive() {
+        return this.game != null ? !this.game.isGameOver() : this.gameActive;
     }
 
     public Component startGame(@Nullable ResourceLocation gameId, byte[] options) {
@@ -201,12 +206,13 @@ public class CardTableBlockEntity extends BlockEntity {
 
     }
 
-    private void setGame(GameType<?, ?> type, Game<?, ?> game) {
+   private void setGame(GameType<?, ?> type, Game<?, ?> game) {
         this.gameType = type;
+        this.game = game;
+        this.gameActive = game != null && !game.isGameOver();
         this.setChanged();
         assert this.getLevel() != null;
         this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
-        this.game = game;
     }
 
     @Override
@@ -260,12 +266,14 @@ public class CardTableBlockEntity extends BlockEntity {
         }else{
             gameType = null;
         }
+        gameActive = tag.getBoolean("gameActive");
     }
 
     @Override
     public @NotNull CompoundTag getUpdateTag(HolderLookup.@NotNull Provider registries) {
         CompoundTag tag = super.getUpdateTag(registries);
         saveAdditional(tag, registries);
+        tag.putBoolean("gameActive", this.isGameActive());
         return tag;
     }
 
@@ -431,7 +439,7 @@ public class CardTableBlockEntity extends BlockEntity {
             }else{
                 ChartaMod.getPacketManager().sendToPlayersTrackingChunk((ServerLevel) level, new ChunkPos(pos), new GameSlotResetPayload(pos));
                 blockEntity.resetSlots();
-                blockEntity.game = null;
+                blockEntity.setGame(blockEntity.gameType, null);
             }
         }
     }
