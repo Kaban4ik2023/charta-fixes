@@ -6,7 +6,6 @@ import dev.lucaargolo.charta.common.block.GameChairBlock;
 import dev.lucaargolo.charta.common.block.entity.CardTableBlockEntity;
 import dev.lucaargolo.charta.common.block.entity.ModBlockEntityTypes;
 import dev.lucaargolo.charta.common.entity.SeatEntity;
-import dev.lucaargolo.charta.common.game.api.game.Game;
 import dev.lucaargolo.charta.common.network.GameLeavePayload;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -44,11 +43,12 @@ public abstract class PlayerMixin extends LivingEntity {
                     Optional<CardTableBlockEntity> optional = level.getBlockEntity(center, ModBlockEntityTypes.CARD_TABLE.get());
                     if(optional.isPresent()) {
                         CardTableBlockEntity blockEntity = optional.get();
-                        Game<?, ?> currentGame = blockEntity.getGame();
-                        if(currentGame != null && !currentGame.isGameOver()) {
+                        if(blockEntity.isGameActive()) {
                             if((Object) this instanceof ServerPlayer serverPlayer) {
                                 ChartaMod.getPacketManager().sendToPlayer(serverPlayer, new GameLeavePayload());
                             }
+                            cir.setReturnValue(false);
+                        }
                             cir.setReturnValue(false);
                         }
                     }
