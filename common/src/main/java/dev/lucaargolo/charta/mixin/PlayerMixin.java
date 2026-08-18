@@ -49,8 +49,6 @@ public abstract class PlayerMixin extends LivingEntity {
                             }
                             cir.setReturnValue(false);
                         }
-                            cir.setReturnValue(false);
-                        }
                     }
                 }
             }
